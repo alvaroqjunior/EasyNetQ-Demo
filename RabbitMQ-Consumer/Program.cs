@@ -12,6 +12,8 @@ namespace RabbitMQ_Consumer
             using (var bus = RabbitHutch.CreateBus("host=localhost"))
             {
                 bus.PubSub.Subscribe<TestMessage>("test", HandleTextMessage);
+                //Different subscriptionID receive a message too works as pub/sub
+                //bus.PubSub.Subscribe<TestMessage>("test1", HandleTextMessage);
                 Console.WriteLine("Listening for messages. Hit <return> to quit.");
                 Console.ReadLine();
             }
